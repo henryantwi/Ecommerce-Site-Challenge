@@ -1,0 +1,1011 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #000;
+    background-color: #fafafa;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Typography */
+h1 {
+    font-size: clamp(3.6rem, 5vw, 5.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+p {
+    opacity: 0.5;
+    line-height: 1.67;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #d87d4a;
+    color: #fff;
+    border-color: #d87d4a;
+}
+
+.btn-primary:hover {
+    background-color: #fbaf85;
+    border-color: #fbaf85;
+}
+
+.btn-secondary {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.btn-secondary:hover {
+    background-color: #4c4c4c;
+    border-color: #4c4c4c;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #000;
+    border-color: #000;
+}
+
+.btn-outline:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header */
+.header {
+    background-color: #191919;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0;
+    position: relative;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 1.6rem;
+    height: 1.5rem;
+    justify-content: space-between;
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.logo {
+    margin-right: auto;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 3.4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.desktop-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: #d87d4a;
+}
+
+.cart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #d87d4a;
+    color: #fff;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    min-width: 2rem;
+}
+
+.cart-count.hidden {
+    display: none;
+}
+
+/* Mobile Menu */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav {
+    background-color: #fff;
+    padding: 8rem 2rem 3rem;
+    border-radius: 0 0 8px 8px;
+    margin: 0 2rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-overlay.active .mobile-nav {
+    transform: translateY(0);
+}
+
+.mobile-nav-categories {
+    display: grid;
+    gap: 1.6rem;
+}
+
+/* Cart Modal */
+.cart-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 11rem 2rem 2rem;
+}
+
+.cart-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-modal {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 377px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.cart-header h2 {
+    font-size: 1.8rem;
+    letter-spacing: 1.3px;
+}
+
+.remove-all-btn {
+    background: none;
+    border: none;
+    color: #000;
+    opacity: 0.5;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.remove-all-btn:hover {
+    color: #d87d4a;
+    opacity: 1;
+}
+
+.cart-items {
+    margin-bottom: 3rem;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #000;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 2.4rem;
+}
+
+.cart-item:last-child {
+    margin-bottom: 0;
+}
+
+.cart-item-image {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.cart-item-price {
+    font-size: 1.4rem;
+    opacity: 0.5;
+    font-weight: 700;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 0;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000;
+    opacity: 0.25;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.quantity-btn:hover {
+    color: #d87d4a;
+    opacity: 1;
+}
+
+.quantity-display {
+    width: 32px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background-color: #f1f1f1;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+    font-size: 1.5rem;
+}
+
+.total-price {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #d87d4a;
+    color: #fff;
+    border: none;
+    padding: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #fbaf85;
+}
+
+.checkout-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #191919;
+    background-image: url('../challenge-files/audio_file/assets/home/desktop/image-hero.jpg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent 50%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 8rem 0;
+}
+
+.hero-text {
+    max-width: 400px;
+}
+
+.new-product {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 2.4rem;
+}
+
+.hero h1 {
+    color: #fff;
+    margin-bottom: 2.4rem;
+}
+
+.hero p {
+    margin-bottom: 4rem;
+}
+
+/* Categories Section */
+.categories {
+    padding: 12rem 0 16rem;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.category-card {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 8.8rem 3rem 3rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-image {
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 122px;
+    height: 160px;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.category-card h3 {
+    margin-bottom: 1.7rem;
+    font-size: 1.8rem;
+}
+
+.shop-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.3rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.shop-link:hover {
+    opacity: 1;
+    color: #d87d4a;
+}
+
+.shop-link img {
+    width: 8px;
+    height: 12px;
+}
+
+/* Featured Products */
+.featured-products {
+    padding: 0 0 12rem;
+}
+
+.featured-product {
+    margin-bottom: 4.8rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-product:last-child {
+    margin-bottom: 0;
+}
+
+.featured-product-primary {
+    background: linear-gradient(135deg, #d87d4a 0%, #cd6929 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-product-primary .featured-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 13.3rem 9.5rem 0;
+    min-height: 560px;
+    position: relative;
+    z-index: 2;
+}
+
+.featured-product-primary .featured-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.featured-product-primary .featured-image img {
+    width: 300px;
+    height: auto;
+    z-index: 2;
+    position: relative;
+}
+
+.pattern-circles {
+    position: absolute;
+    top: -40px;
+    left: -150px;
+    z-index: 1;
+    opacity: 0.5;
+    transform: scale(1.5);
+}
+
+.featured-product-primary h2 {
+    color: #fff;
+    margin-bottom: 2.4rem;
+}
+
+.featured-product-primary p {
+    color: #fff;
+    opacity: 0.75;
+    margin-bottom: 4rem;
+}
+
+.featured-product-secondary {
+    background-image: url('../challenge-files/audio_file/assets/home/desktop/image-speaker-zx7.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 320px;
+}
+
+.featured-product-secondary .featured-content {
+    display: flex;
+    align-items: center;
+    padding: 10rem 9.5rem;
+}
+
+.featured-product-secondary h2 {
+    margin-bottom: 3.2rem;
+}
+
+.featured-product-tertiary .featured-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    height: 320px;
+}
+
+.featured-product-tertiary .featured-image {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.featured-product-tertiary .featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-product-tertiary .featured-text {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 10rem 9.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-product-tertiary h2 {
+    margin-bottom: 3.2rem;
+}
+
+/* About Section */
+.about {
+    padding: 12rem 0 20rem;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12.5rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    margin-bottom: 3.2rem;
+}
+
+.highlight {
+    color: #d87d4a;
+}
+
+.about-image {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Footer */
+.footer {
+    background-color: #191919;
+    color: #fff;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 101px;
+    height: 4px;
+    background-color: #d87d4a;
+}
+
+.footer-content {
+    padding: 7.5rem 0 4.8rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.6rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 3.4rem;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #d87d4a;
+}
+
+.footer-middle {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 5.6rem;
+}
+
+.footer-middle p {
+    color: #fff;
+    opacity: 0.5;
+    max-width: 540px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.social-links a {
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom p {
+    color: #fff;
+    opacity: 0.5;
+    font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Header Mobile */
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
+    .logo {
+        margin: 0 auto;
+    }
+
+    .header-content {
+        padding: 2rem 0;
+    }
+
+    /* Hero Mobile */
+    .hero {
+        background-image: url('../challenge-files/audio_file/assets/home/mobile/image-header.jpg');
+        background-position: center;
+        text-align: center;
+        min-height: 60vh;
+    }
+
+    .hero::before {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: none;
+    }
+
+    /* Categories Mobile */
+    .categories {
+        padding: 9.2rem 0 12rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 6.8rem;
+    }
+
+    .category-card {
+        padding: 8.8rem 2rem 2.2rem;
+    }
+
+    /* Featured Products Mobile */
+    .featured-product-primary .featured-content {
+        grid-template-columns: 1fr;
+        gap: 3.2rem;
+        padding: 5.5rem 2.4rem 5.5rem;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .featured-product-primary .featured-image img {
+        width: 200px;
+    }
+
+    .pattern-circles {
+        transform: scale(1);
+        top: -80px;
+        left: -50px;
+    }
+
+    .featured-product-secondary {
+        background-image: url('../challenge-files/audio_file/assets/home/mobile/image-speaker-zx7.jpg');
+        min-height: 320px;
+    }
+
+    .featured-product-secondary .featured-content {
+        padding: 10rem 2.4rem;
+    }
+
+    .featured-product-tertiary .featured-content {
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
+        height: auto;
+    }
+
+    .featured-product-tertiary .featured-text {
+        padding: 4.1rem 2.4rem;
+    }
+
+    /* About Mobile */
+    .about {
+        padding: 12rem 0;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .about-content .about-image {
+        order: -1;
+    }
+
+    /* Footer Mobile */
+    .footer-top {
+        flex-direction: column;
+        gap: 4.8rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 1.6rem;
+        text-align: center;
+    }
+
+    .footer-middle {
+        grid-template-columns: 1fr;
+        gap: 4.8rem;
+        text-align: center;
+    }
+
+    .footer-middle p {
+        max-width: none;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+    /* Mobile Menu Categories */
+    .mobile-nav-categories {
+        grid-template-columns: 1fr;
+        gap: 6.8rem;
+    }
+
+    .category-item {
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        padding: 8.8rem 3rem 2.2rem;
+        text-align: center;
+        position: relative;
+    }
+
+    .category-item img {
+        position: absolute;
+        top: -4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: auto;
+    }
+
+    .category-item h3 {
+        margin-bottom: 1.7rem;
+        font-size: 1.5rem;
+    }
+
+    /* Cart Modal Mobile */
+    .cart-modal-overlay {
+        padding: 9rem 2rem 2rem;
+        justify-content: center;
+    }
+
+    .cart-modal {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Tablet styles */
+    .hero {
+        background-image: url('../challenge-files/audio_file/assets/home/tablet/image-header.jpg');
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .category-card {
+        padding: 8.8rem 2rem 2.2rem;
+    }
+
+    .featured-product-primary .featured-content {
+        gap: 2rem;
+        padding: 6rem 5rem 0;
+    }
+
+    .featured-product-primary .featured-image img {
+        width: 250px;
+    }
+
+    .featured-product-secondary .featured-content {
+        padding: 10rem 6rem;
+    }
+
+    .featured-product-tertiary .featured-text {
+        padding: 10rem 4rem;
+    }
+
+    .about-content {
+        gap: 6rem;
+    }
+
+    .footer-nav {
+        gap: 2rem;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+} 

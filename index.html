@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiophile - Premium Audio Equipment</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./challenge-files/audio_file/assets/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <nav class="mobile-nav">
+            <div class="mobile-nav-categories">
+                <div class="category-item">
+                    <img src="./challenge-files/audio_file/assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones">
+                    <h3>HEADPHONES</h3>
+                    <a href="headphones.html" class="shop-link">SHOP <img src="./challenge-files/audio_file/assets/shared/desktop/icon-arrow-right.svg" alt=""></a>
+                </div>
+                <div class="category-item">
+                    <img src="./challenge-files/audio_file/assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers">
+                    <h3>SPEAKERS</h3>
+                    <a href="speakers.html" class="shop-link">SHOP <img src="./challenge-files/audio_file/assets/shared/desktop/icon-arrow-right.svg" alt=""></a>
+                </div>
+                <div class="category-item">
+                    <img src="./challenge-files/audio_file/assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones">
+                    <h3>EARPHONES</h3>
+                    <a href="earphones.html" class="shop-link">SHOP <img src="./challenge-files/audio_file/assets/shared/desktop/icon-arrow-right.svg" alt=""></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cartModalOverlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>CART (<span id="cartItemCount">0</span>)</h2>
+                <button class="remove-all-btn" id="removeAllBtn">Remove all</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-total">
+                <span>TOTAL</span>
+                <span class="total-price" id="cartTotal">$ 0</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./challenge-files/audio_file/assets/shared/desktop/logo.svg" alt="Audiophile">
+                    </a>
+                </div>
+
+                <nav class="desktop-nav">
+                    <a href="index.html">HOME</a>
+                    <a href="headphones.html">HEADPHONES</a>
+                    <a href="speakers.html">SPEAKERS</a>
+                    <a href="earphones.html">EARPHONES</a>
+                </nav>
+
+                <button class="cart-btn" id="cartBtn">
+                    <img src="./challenge-files/audio_file/assets/shared/desktop/icon-cart.svg" alt="Shopping Cart">
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="new-product">NEW PRODUCT</span>
+                        <h1>XX99 Mark II Headphones</h1>
+                        <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
+                        <a href="product-xx99-mark-two-headphones.html" class="btn btn-primary">SEE PRODUCT</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./challenge-files/audio_file/assets/home/desktop/image-hero.jpg" alt="XX99 Mark II Headphones">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./challenge-files/audio_file/assets/shared/desktop/image-category-thumbnail-headphones.png" alt="Headphones">
+                        </div>
+                        <h3>HEADPHONES</h3>
+                        <a href="headphones.html" class="shop-link">SHOP <img src="./challenge-files/audio_file/assets/shared/desktop/icon-arrow-right.svg" alt=""></a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./challenge-files/audio_file/assets/shared/desktop/image-category-thumbnail-speakers.png" alt="Speakers">
+                        </div>
+                        <h3>SPEAKERS</h3>
+                        <a href="speakers.html" class="shop-link">SHOP <img src="./challenge-files/audio_file/assets/shared/desktop/icon-arrow-right.svg" alt=""></a>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./challenge-files/audio_file/assets/shared/desktop/image-category-thumbnail-earphones.png" alt="Earphones">
+                        </div>
+                        <h3>EARPHONES</h3>
+                        <a href="earphones.html" class="shop-link">SHOP <img src="./challenge-files/audio_file/assets/shared/desktop/icon-arrow-right.svg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <div class="container">
+                <!-- ZX9 Speaker -->
+                <div class="featured-product featured-product-primary">
+                    <div class="featured-content">
+                        <div class="featured-image">
+                            <img src="./challenge-files/audio_file/assets/home/desktop/image-speaker-zx9.png" alt="ZX9 Speaker">
+                            <div class="pattern-circles">
+                                <img src="./challenge-files/audio_file/assets/home/desktop/pattern-circles.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="featured-text">
+                            <h2>ZX9 SPEAKER</h2>
+                            <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+                            <a href="product-zx9-speaker.html" class="btn btn-secondary">SEE PRODUCT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ZX7 Speaker -->
+                <div class="featured-product featured-product-secondary">
+                    <div class="featured-content">
+                        <div class="featured-text">
+                            <h2>ZX7 SPEAKER</h2>
+                            <a href="product-zx7-speaker.html" class="btn btn-outline">SEE PRODUCT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YX1 Earphones -->
+                <div class="featured-product featured-product-tertiary">
+                    <div class="featured-content">
+                        <div class="featured-image">
+                            <img src="./challenge-files/audio_file/assets/home/desktop/image-earphones-yx1.jpg" alt="YX1 Earphones">
+                        </div>
+                        <div class="featured-text">
+                            <h2>YX1 EARPHONES</h2>
+                            <a href="product-yx1-earphones.html" class="btn btn-outline">SEE PRODUCT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Bringing you the <span class="highlight">best</span> audio gear</h2>
+                        <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="./challenge-files/audio_file/assets/shared/desktop/image-best-gear.jpg" alt="Person enjoying audio gear">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-top">
+                    <div class="footer-logo">
+                        <img src="./challenge-files/audio_file/assets/shared/desktop/logo.svg" alt="Audiophile">
+                    </div>
+                    <nav class="footer-nav">
+                        <a href="index.html">HOME</a>
+                        <a href="headphones.html">HEADPHONES</a>
+                        <a href="speakers.html">SPEAKERS</a>
+                        <a href="earphones.html">EARPHONES</a>
+                    </nav>
+                </div>
+                
+                <div class="footer-middle">
+                    <p>Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we're open 7 days a week.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><img src="./challenge-files/audio_file/assets/shared/desktop/icon-facebook.svg" alt="Facebook"></a>
+                        <a href="#" aria-label="Twitter"><img src="./challenge-files/audio_file/assets/shared/desktop/icon-twitter.svg" alt="Twitter"></a>
+                        <a href="#" aria-label="Instagram"><img src="./challenge-files/audio_file/assets/shared/desktop/icon-instagram.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>Copyright 2021. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

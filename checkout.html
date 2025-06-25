@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Audiophile</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./challenge-files/audio_file/assets/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+</head>
+<body>
+    <!-- Order Confirmation Modal -->
+    <div class="confirmation-modal-overlay" id="confirmationModal">
+        <div class="confirmation-modal">
+            <div class="confirmation-header">
+                <img src="./challenge-files/audio_file/assets/checkout/icon-order-confirmation.svg" alt="Order Confirmed">
+                <h2>THANK YOU<br>FOR YOUR ORDER</h2>
+                <p>You will receive an email confirmation shortly.</p>
+            </div>
+            
+            <div class="confirmation-summary">
+                <div class="confirmation-items">
+                    <div id="confirmationItemsList">
+                        <!-- Items will be populated by JavaScript -->
+                    </div>
+                    <div class="view-more" id="viewMoreItems" style="display: none;">
+                        <span>and <span id="remainingItemsCount">0</span> other item(s)</span>
+                    </div>
+                </div>
+                <div class="confirmation-total">
+                    <span>GRAND TOTAL</span>
+                    <span class="total-amount" id="confirmationTotal">$ 0</span>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" id="backToHomeBtn">BACK TO HOME</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./challenge-files/audio_file/assets/shared/desktop/logo.svg" alt="Audiophile">
+                    </a>
+                </div>
+
+                <nav class="desktop-nav">
+                    <a href="index.html">HOME</a>
+                    <a href="headphones.html">HEADPHONES</a>
+                    <a href="speakers.html">SPEAKERS</a>
+                    <a href="earphones.html">EARPHONES</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <!-- Go Back Button -->
+        <section class="go-back">
+            <div class="container">
+                <button onclick="history.back()" class="go-back-btn">Go Back</button>
+            </div>
+        </section>
+
+        <!-- Checkout Content -->
+        <section class="checkout">
+            <div class="container">
+                <div class="checkout-content">
+                    <!-- Checkout Form -->
+                    <div class="checkout-form-container">
+                        <h1>CHECKOUT</h1>
+                        
+                        <form id="checkoutForm" class="checkout-form">
+                            <!-- Billing Details -->
+                            <fieldset class="form-section">
+                                <legend>BILLING DETAILS</legend>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Alexei Ward" required>
+                                        <span class="error-message" id="nameError"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" placeholder="alexei@mail.com" required>
+                                        <span class="error-message" id="emailError"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+1 202-555-0136" required>
+                                    <span class="error-message" id="phoneError"></span>
+                                </div>
+                            </fieldset>
+
+                            <!-- Shipping Info -->
+                            <fieldset class="form-section">
+                                <legend>SHIPPING INFO</legend>
+                                
+                                <div class="form-group">
+                                    <label for="address">Your Address</label>
+                                    <input type="text" id="address" name="address" placeholder="1137 Williams Avenue" required>
+                                    <span class="error-message" id="addressError"></span>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="zipCode">ZIP Code</label>
+                                        <input type="text" id="zipCode" name="zipCode" placeholder="10001" required>
+                                        <span class="error-message" id="zipCodeError"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" id="city" name="city" placeholder="New York" required>
+                                        <span class="error-message" id="cityError"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <input type="text" id="country" name="country" placeholder="United States" required>
+                                    <span class="error-message" id="countryError"></span>
+                                </div>
+                            </fieldset>
+
+                            <!-- Payment Details -->
+                            <fieldset class="form-section">
+                                <legend>PAYMENT DETAILS</legend>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Payment Method</label>
+                                    </div>
+                                    <div class="payment-methods">
+                                        <div class="radio-group">
+                                            <input type="radio" id="eMoney" name="paymentMethod" value="e-money" checked>
+                                            <label for="eMoney">e-Money</label>
+                                        </div>
+                                        <div class="radio-group">
+                                            <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cash">
+                                            <label for="cashOnDelivery">Cash on Delivery</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- e-Money Details -->
+                                <div id="eMoneyDetails" class="payment-details">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="eMoneyNumber">e-Money Number</label>
+                                            <input type="text" id="eMoneyNumber" name="eMoneyNumber" placeholder="238521993">
+                                            <span class="error-message" id="eMoneyNumberError"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="eMoneyPin">e-Money PIN</label>
+                                            <input type="text" id="eMoneyPin" name="eMoneyPin" placeholder="6891">
+                                            <span class="error-message" id="eMoneyPinError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cash on Delivery Info -->
+                                <div id="cashOnDeliveryInfo" class="payment-details" style="display: none;">
+                                    <div class="cash-info">
+                                        <img src="./challenge-files/audio_file/assets/checkout/icon-cash-on-delivery.svg" alt="Cash on Delivery">
+                                        <p>The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="order-summary">
+                        <h2>SUMMARY</h2>
+                        
+                        <div class="summary-items" id="summaryItems">
+                            <!-- Items will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="summary-totals">
+                            <div class="total-row">
+                                <span>TOTAL</span>
+                                <span id="summaryTotal">$ 0</span>
+                            </div>
+                            <div class="total-row">
+                                <span>SHIPPING</span>
+                                <span id="summaryShipping">$ 50</span>
+                            </div>
+                            <div class="total-row">
+                                <span>VAT (INCLUDED)</span>
+                                <span id="summaryVat">$ 0</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span>GRAND TOTAL</span>
+                                <span id="summaryGrandTotal">$ 0</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" form="checkoutForm" class="btn btn-primary checkout-submit">CONTINUE & PAY</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
